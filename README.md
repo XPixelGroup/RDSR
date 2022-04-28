@@ -11,7 +11,7 @@ Paper link: https://arxiv.org/pdf/2112.12089.pdf
 
 
 # Codes 
-- The core code is adding nn.functional.dropout(or dropout2d) into RealESRNet (https://github.com/xinntao/Real-ESRGAN).
+- The core code is adding nn.functional.dropout(or dropout2d) into RealESRNet (https://github.com/xinntao/Real-ESRGAN). We will upload the detailed code and trained models in this week (before 2022.5.1).
 
 
 ## How to generate channel saliency map (CSM)
