@@ -3,9 +3,8 @@
 
 Paper link: https://arxiv.org/pdf/2112.12089.pdf
 
-![Image](https://raw.githubusercontent.com/Xiangtaokong/Reflash-Dropout-in-Image-Super-Resolution/main/result.png)
 
-<img src="https://raw.githubusercontent.com/Xiangtaokong/Reflash-Dropout-in-Image-Super-Resolution/main/result.png" width="100px">
+<img src="https://raw.githubusercontent.com/Xiangtaokong/Reflash-Dropout-in-Image-Super-Resolution/main/result.png" width="800px">
 
 ## Abstract
 
