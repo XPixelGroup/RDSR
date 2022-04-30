@@ -3,7 +3,7 @@
 
 Paper link: https://arxiv.org/pdf/2112.12089.pdf
 
-One line of dropout is worth a ten-fold increase in the model parameters (SRResNet && RRDB).
+One line of dropout brings more improvement than ten times of model parameters (SRResNet && RRDB).
 
 
 <img src="https://raw.githubusercontent.com/Xiangtaokong/Reflash-Dropout-in-Image-Super-Resolution/main/result.png" width="550px">
