@@ -4,7 +4,7 @@
 Paper link: https://arxiv.org/pdf/2112.12089.pdf
 
 
-<img src="https://raw.githubusercontent.com/Xiangtaokong/Reflash-Dropout-in-Image-Super-Resolution/main/result.png" width="800px">
+<img src="https://raw.githubusercontent.com/Xiangtaokong/Reflash-Dropout-in-Image-Super-Resolution/main/result.png" width="600px">
 
 ## Abstract
 
