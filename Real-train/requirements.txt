@@ -1,0 +1,4 @@
+basicsr
+numpy
+opencv-python
+torch>=1.7

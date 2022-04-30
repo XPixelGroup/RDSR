@@ -1,0 +1,362 @@
+name: test_Real_SRResNetx4_withdropout
+model_type: SRModel
+scale: 4
+num_gpu: 1  # set num_gpu: 0 for cpu mode
+manual_seed: 0
+
+# network structures
+network_g:
+  type: MSRResNet_details
+  num_in_ch: 3
+  num_out_ch: 3
+  num_feat: 64
+  num_block: 16
+  upscale: 4
+
+# path
+path:
+  pretrain_network_g: /data0/xtkong/Reflash-Dropout-github/Real-train/pretrained_model/Real-SRResNet_withdropout.pth
+  strict_load_g: true
+
+# validation settings
+val:
+  save_img: true
+  suffix: ~  # add suffix to saved images, if None, use exp name
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 4
+      test_y_channel: false
+
+
+datasets:
+
+  test_01:  # the 1st test dataset
+    name: Set5_bicubic
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set5/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set5/LR_degra/bicubic
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_02:  # the 2st test dataset
+    name: Set14_bicubic
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set14/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set14/LR_degra/bicubic
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_03:
+    name: BSD100_bicubic
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/B100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/B100/LR_degra/bicubic
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_04:
+    name: Manga109_bicubic
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Manga109/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Manga109/LR_degra/bicubic
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_05:
+    name: Urban100_bicubic
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Urban100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Urban100/LR_degra/bicubic
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_06:  # the 1st test dataset
+    name: Set5_blur2_bicubic
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set5/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set5/LR_degra/blur2_bicubic
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_07:  # the 2st test dataset
+    name: Set14_blur2_bicubic
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set14/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set14/LR_degra/blur2_bicubic
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_08:
+    name: BSD100_blur2_bicubic
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/B100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/B100/LR_degra/blur2_bicubic
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_09:
+    name: Manga109_blur2_bicubic
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Manga109/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Manga109/LR_degra/blur2_bicubic
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_10:
+    name: Urban100_blur2_bicubic
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Urban100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Urban100/LR_degra/blur2_bicubic
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_11:  # the 1st test dataset
+    name: Set5_bicubic_noise20
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set5/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set5/LR_degra/bicubic_noise20
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_12:  # the 2st test dataset
+    name: Set14_bicubic_noise20
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set14/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set14/LR_degra/bicubic_noise20
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_13:
+    name: BSD100_bicubic_noise20
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/B100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/B100/LR_degra/bicubic_noise20
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_14:
+    name: Manga109_bicubic_noise20
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Manga109/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Manga109/LR_degra/bicubic_noise20
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_15:
+    name: Urban100_bicubic_noise20
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Urban100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Urban100/LR_degra/bicubic_noise20
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_16:  # the 1st test dataset
+    name: Set5_bicubic_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set5/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set5/LR_degra/bicubic_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_17:  # the 2st test dataset
+    name: Set14_bicubic_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set14/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set14/LR_degra/bicubic_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_18:
+    name: BSD100_bicubic_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/B100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/B100/LR_degra/bicubic_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_19:
+    name: Manga109_bicubic_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Manga109/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Manga109/LR_degra/bicubic_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_20:
+    name: Urban100_bicubic_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Urban100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Urban100/LR_degra/bicubic_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_21: # the 1st test dataset
+    name: Set5_blur2_bicubic_noise20
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set5/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set5/LR_degra/blur2_bicubic_noise20
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_22: # the 2st test dataset
+    name: Set14_blur2_bicubic_noise20
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set14/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set14/LR_degra/blur2_bicubic_noise20
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_23:
+    name: BSD100_blur2_bicubic_noise20
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/B100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/B100/LR_degra/blur2_bicubic_noise20
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_24:
+    name: Manga109_blur2_bicubic_noise20
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Manga109/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Manga109/LR_degra/blur2_bicubic_noise20
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_25:
+    name: Urban100_blur2_bicubic_noise20
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Urban100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Urban100/LR_degra/blur2_bicubic_noise20
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_26: # the 1st test dataset
+    name: Set5_blur2_bicubic_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set5/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set5/LR_degra/blur2_bicubic_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_27: # the 2st test dataset
+    name: Set14_blur2_bicubic_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set14/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set14/LR_degra/blur2_bicubic_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_28:
+    name: BSD100_blur2_bicubic_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/B100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/B100/LR_degra/blur2_bicubic_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_29:
+    name: Manga109_blur2_bicubic_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Manga109/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Manga109/LR_degra/blur2_bicubic_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_30:
+    name: Urban100_blur2_bicubic_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Urban100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Urban100/LR_degra/blur2_bicubic_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_31: # the 1st test dataset
+    name: Set5_bicubic_noise20_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set5/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set5/LR_degra/bicubic_noise20_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_32: # the 2st test dataset
+    name: Set14_bicubic_noise20_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set14/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set14/LR_degra/bicubic_noise20_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_33:
+    name: BSD100_bicubic_noise20_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/B100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/B100/LR_degra/bicubic_noise20_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_34:
+    name: Manga109_bicubic_noise20_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Manga109/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Manga109/LR_degra/bicubic_noise20_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_35:
+    name: Urban100_bicubic_noise20_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Urban100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Urban100/LR_degra/bicubic_noise20_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_36: # the 1st test dataset
+    name: Set5_blur2_bicubic_noise20_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set5/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set5/LR_degra/blur2_bicubic_noise20_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_37: # the 2st test dataset
+    name: Set14_blur2_bicubic_noise20_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Set14/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Set14/LR_degra/blur2_bicubic_noise20_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_38:
+    name: BSD100_blur2_bicubic_noise20_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/B100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/B100/LR_degra/blur2_bicubic_noise20_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_39:
+    name: Manga109_blur2_bicubic_noise20_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Manga109/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Manga109/LR_degra/blur2_bicubic_noise20_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  test_40:
+    name: Urban100_blur2_bicubic_noise20_jepg50
+    type: PairedImageDataset
+    dataroot_gt: /data0/xtkong/data/benchmark/Urban100/HR/x4
+    dataroot_lq: /data0/xtkong/data/benchmark/Urban100/LR_degra/blur2_bicubic_noise20_jepg50
+    #filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
