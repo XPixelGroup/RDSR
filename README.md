@@ -3,6 +3,8 @@
 
 Paper link: https://arxiv.org/pdf/2112.12089.pdf
 
+![Results Image](https://raw.githubusercontent.com/Xiangtaokong/Reflash-Dropout-in-Image-Super-Resolution/main/results.png)
+
 ## Abstract
 
 Dropout is designed to relieve the overfitting problem in high-level vision tasks but is rarely applied in low-level vision tasks, like image super-resolution (SR). As a classic regression problem, SR exhibits a different behaviour as high-level tasks and is sensitive to the dropout operation. However, in this paper, we show that appropriate usage of dropout benefits SR networks and improves the generalization ability. Specifically, dropout is better embedded at the end of the network and is significantly helpful for the multi-degradation settings. This discovery breaks our common sense and inspires us to explore its working mechanism. We further use two analysis tools -- one is from recent network interpretation works, and the other is specially designed for this task. The analysis results provide side proofs to our experimental findings and show us a new perspective to understand SR networks.
@@ -80,7 +82,7 @@ CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 -
 5. The experiments will be sorted in `./experiments`. 
 
 ## How to generate channel saliency map (CSM)
-1. 
+1. Move to CSM dir.
 ```
 cd CSM
 ```
