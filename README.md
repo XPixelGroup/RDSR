@@ -32,7 +32,7 @@ cd Reflash-Dropout-in-Image-Super-Resolution
 
 ## How to test Real-SRResNet or Real-RRDB (w/ or w/o) dropout
 
-Some steps require replacing your local paths.
+**Some steps require replacing your local paths.**
 
 1. Move to experiment dir.
 ```
@@ -61,6 +61,8 @@ CUDA_VISIBLE_DEVICES=1 python realesrgan/test.py -opt options/test/test_realsrre
 
 ## How to train Real-SRResNet or Real-RRDB (w/ or w/o) dropout
 
+**Some steps require replacing your local paths.**
+
 1. Move to experiment dir.
 ```
 cd Real-train
@@ -86,6 +88,9 @@ CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 -
 5. The experiments will be sorted in `./experiments`. 
 
 ## How to generate channel saliency map (CSM)
+
+**Some steps require replacing your local paths.**
+
 1. Move to CSM dir.
 ```
 cd CSM
