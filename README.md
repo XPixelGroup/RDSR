@@ -2,6 +2,7 @@
 (CVPR2022) Reflash Dropout in Image Super-Resolution
 
 Paper link: https://arxiv.org/pdf/2112.12089.pdf
+Talk (Chinese, start from 26:35): https://www.bilibili.com/video/BV1gY4y1k7fU?spm_id_from=333.337.search-card.all.click
 
 One line of dropout brings more improvement than ten times of model parameters (SRResNet && RRDB).
 
