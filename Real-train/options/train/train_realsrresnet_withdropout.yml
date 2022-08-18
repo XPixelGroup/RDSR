@@ -16,6 +16,7 @@ network_g:
 
 # ----------------- options for synthesizing training data in RealESRNetModel ----------------- #
 gt_usm: True  # USM the ground-truth
+#To remain the setting of Real-ESRGAN, we use the GT USM (sharpness) in the paper. But we also provide the trained models without USM, the improvement is basically same.
 
 # the first degradation process
 resize_prob: [0.2, 0.7, 0.1]  # up, down, keep
