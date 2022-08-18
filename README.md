@@ -53,7 +53,7 @@ python add_degradations.py
 
 4. Download [pretrained models](https://drive.google.com/drive/folders/1NcNHbsGtD0OHuAf_ATACmZ_cTikL7bB3?usp=sharing) and move them to  `./pretrained_models/` folder. 
 
-To remain the setting of Real-ESRGAN, we use the GT USM (sharpness) in the paper. But we also provide the models without USM, the improvement is basically same.
+   To remain the setting of Real-ESRGAN, we use the GT USM (sharpness) in the paper. But we also provide the models without USM, the improvement is basically same.
 
 5. Run the testing commands.
 ```
