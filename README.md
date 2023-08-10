@@ -118,4 +118,15 @@ Attribution method of attributing the prediction of a deep network to its input 
 
 ## How to generate deep degradation representation (DDR)
 The code of DDR (https://arxiv.org/pdf/2108.00406.pdf) will be released these days by https://github.com/lyh-18 in his projects.
-We will update the code after releasing
+We will update the code after releasing.
+
+## Citation
+```
+@inproceedings{kong2022reflash,
+  title={Reflash dropout in image super-resolution},
+  author={Kong, Xiangtao and Liu, Xina and Gu, Jinjin and Qiao, Yu and Dong, Chao},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={6002--6012},
+  year={2022}
+}
+```
