@@ -280,7 +280,7 @@ if __name__ == '__main__':
             img_copy = img_GT.copy()
             img_LR = donw_sample_bicubic(img_copy)
             #noise
-            img_noise=add_noise(40,40,img_LR)
+            img_noise=add_noise(20,20,img_LR)
             save_dir = os.path.join(save_LR_folder, 'bicubic_noise20')
             check_dir(save_dir)
             img_noise.save(os.path.join(save_dir,os.path.basename(path_GT)))
