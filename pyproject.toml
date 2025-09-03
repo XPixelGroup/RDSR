@@ -1,0 +1,113 @@
+[tool.poetry]
+name = "realesrgan"
+version = "0.3.0"
+description = "Real-ESRGAN aims at developing Practical Algorithms for General Image Restoration"
+authors = ["Xintao Wang <xintao.wang@outlook.com>"]
+readme = "README.md"
+homepage = "https://github.com/xinntao/Real-ESRGAN"
+repository = "https://github.com/xinntao/Real-ESRGAN"
+keywords = ["computer vision", "pytorch", "image restoration", "super-resolution", "esrgan", "real-esrgan"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+license = "BSD-3-Clause"
+packages = [
+    {include = "realesrgan", from = "Real-train"},
+    {include = "CSM"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+basicsr = "*"
+numpy = "*"
+opencv-python = "*"
+torch = ">=1.7"
+cython = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+pytest-cov = "^4.0.0"
+pytest-mock = "^3.10.0"
+
+[tool.poetry.scripts]
+test = "pytest:main"
+tests = "pytest:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--verbose",
+    "--cov=realesrgan",
+    "--cov=CSM",
+    "--cov-report=html:htmlcov",
+    "--cov-report=xml:coverage.xml",
+    "--cov-report=term-missing",
+    "--cov-fail-under=80"
+]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "unit: marks tests as unit tests (deselect with '-m \"not unit\"')",
+    "integration: marks tests as integration tests (deselect with '-m \"not integration\"')",
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')"
+]
+
+[tool.coverage.run]
+source = ["realesrgan", "CSM"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__pycache__/*",
+    "*/venv/*",
+    "*/.venv/*",
+    "*/site-packages/*",
+    "*/setup.py",
+    "*/conftest.py",
+    "*/experiments/*",
+    "*/results/*",
+    "*/tb_logger/*",
+    "*/wandb/*",
+    "*/pretrained_models/*",
+    "*/datasets/*",
+    "*/assets/*",
+    "*/inputs/*"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod"
+]
+show_missing = true
+skip_covered = false
+precision = 2
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+[tool.coverage.xml]
+output = "coverage.xml"
